@@ -9,7 +9,7 @@ The below sums are for files found in com.att.schemas.v3.zip.
 Top Level - 
 Sum     File name
 ------  --------------------------------------------	
-26609 5 REST.xsd
+42686 5 REST.xsd
 27193 6 SDK.xsd
 29606 4 Error.xsd
 
@@ -24,7 +24,7 @@ Sum     File name
 37751 7 Method.xsd
 25972 1 OperationType.xsd
 4865 1 Provider.xsd
-28630 1 README.txt
+42233 1 README.txt
 20522 4 Request.xsd
 41846 3 Response.xsd
 910 3 ResponseCode.xsd
