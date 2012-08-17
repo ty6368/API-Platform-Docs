@@ -9,23 +9,22 @@
  
  
   Title: Error Documentation Schema
-  Version: 0.1
+  Version: 0.2
   @author Ty Showers
  
   Copyright (c) 2012 AT&T. All Rights Reserved.
   
   Revision History
   __________________________________________________________________
+  0.2 - ty6368 - 8/17/2012 - added ADS op-id 
   0.1 - ts315t - 8/14/2012 - Initial version
 
-
-
  -->
-<xs:schema id="AffectedAPIDataSet" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://developer.att.com/Methods" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://developer.att.com/Methods" targetNamespace="http://developer.att.com/Methods" elementFormDefault="qualified" id="AffectedAPIDataSet">
 	<xs:complexType name="Methods">
 		<xs:sequence>
 			<!-- restricted list to follow -->
-			<xs:element name="GenericName" minOccurs="0" />
+			<xs:element name="GenericName" minOccurs="0"/>
 			<xs:element name="operation_id" minOccurs="1" maxOccurs="unbounded">
 				<xs:simpleType>
 					<xs:restriction base="xs:int">
@@ -89,6 +88,7 @@
 						<xs:enumeration value="58" /> <!-- SMS 3 GET /rest/3/sms/messaging/outbox/{Id} -->
 						<xs:enumeration value="59" /> <!-- SPEECH 1 POST /rest/1/SpeechToText -->
 						<xs:enumeration value="60" /> <!-- WAP 1 POST /1/messages/outbox/wapPush -->
+						<xs:enumeration value="61" /> <!-- Advertisement 1 GET /rest/1/ads -->
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
