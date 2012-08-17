@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+                  AT&T License Notice
+ 
+  The contents of this file are subject to the AT&T License
+  (the "License"). You may not use this file except in
+  compliance with the License. A copy of the License is available at
+  http://www.att.com/license/
+ 
+ 
+  Title: Error Documentation Schema
+  Version: 0.1
+  @author Ty Showers
+ 
+  Copyright (c) 2012 AT&T. All Rights Reserved.
+  
+  Revision History
+  __________________________________________________________________
+  0.1 - ts315t - 8/14/2012 - Initial version
+
+
+
+ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://developer.att.com/Provider" elementFormDefault="qualified">
+	<xs:simpleType name="provider">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AT&amp;T" />
+			<xs:enumeration value="GSMA OneAPI" />
+			<xs:enumeration value="W3C" />
+			<xs:enumeration value="WAC" />
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
