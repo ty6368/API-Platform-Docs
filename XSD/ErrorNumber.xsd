@@ -42,18 +42,18 @@
 			<xs:element name="api" minOccurs="1">
 				<xs:simpleType>
 					<xs:restriction base="xs:int">
-						<xs:enumeration value="01"/>						<!-- Device Capability -->
-						<xs:enumeration value="02"/>						<!-- LOCATION -->
-						<xs:enumeration value="03"/>						<!-- MIM -->
-						<xs:enumeration value="04"/>						<!-- MMS -->
-						<xs:enumeration value="05"/>						<!-- MOBO -->
-						<xs:enumeration value="06"/>						<!-- NOTARY -->
-						<xs:enumeration value="07"/>						<!-- OAUTH -->
-						<xs:enumeration value="08"/>						<!-- PAYMENT -->
-						<xs:enumeration value="09"/>						<!-- SMS -->
-						<xs:enumeration value="10"/>						<!-- SPEECH -->
-						<xs:enumeration value="11"/>						<!-- WAP -->
-						<xs:enumeration value="12"/>						<!-- Advertisement -->
+						<xs:enumeration value="01"/> <!-- Device Capability -->
+						<xs:enumeration value="02"/> <!-- LOCATION -->
+						<xs:enumeration value="03"/> <!-- MIM -->
+						<xs:enumeration value="04"/> <!-- MMS -->
+						<xs:enumeration value="05"/> <!-- MOBO -->
+						<xs:enumeration value="06"/> <!-- NOTARY -->
+						<xs:enumeration value="07"/> <!-- OAUTH -->
+						<xs:enumeration value="08"/> <!-- PAYMENT -->
+						<xs:enumeration value="09"/> <!-- SMS -->
+						<xs:enumeration value="10"/> <!-- SPEECH -->
+						<xs:enumeration value="11"/> <!-- WAP -->
+						<xs:enumeration value="12"/> <!-- Advertisement -->
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
