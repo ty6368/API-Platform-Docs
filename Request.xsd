@@ -9,35 +9,35 @@
  
  
   Title: Error Documentation Schema
-  Version: 0.1
-  @author Ty Showers
+  Version: 0.2
+  @author Ty Showers and Tim Young
  
   Copyright (c) 2012 AT&T. All Rights Reserved.
   
   Revision History
   __________________________________________________________________
+  0.2 - ty6368 - 8/17/2012 - The request-header is set to max 1 and thus forces data-fill to create one colelction of Operation elements for each representation format supported.
   0.1 - ts315t - 8/14/2012 - Initial version
 
-
-
  -->
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://developer.att.com/Request" xmlns:verbs="http://developer.att.com/Verb" elementFormDefault="qualified">
-	<xs:import namespace="http://developer.att.com/Verb" schemaLocation="Verb.xsd" />
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:verbs="http://developer.att.com/Verb" xmlns:ns1="http://developer.att.com/Request" targetNamespace="http://developer.att.com/Request" elementFormDefault="qualified">
+	<xs:import namespace="http://developer.att.com/Verb" schemaLocation="Verb.xsd"/>
 	<xs:complexType name="request-parameters">
 		<xs:sequence>
 			<xs:element name="request-parameter" minOccurs="1" maxOccurs="unbounded">
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="name" type="xs:string" minOccurs="1" />
-						<xs:element name="required" type="xs:boolean" minOccurs="1" />
-						<xs:element name="description" type="xs:string" minOccurs="1" />
+						<xs:element name="name" type="xs:string" minOccurs="1"/>
+						<xs:element name="required" type="xs:boolean" minOccurs="1"/>
+						<xs:element name="description" type="xs:string" minOccurs="1"/>
 						<xs:element name="placement" minOccurs="1">
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
-									<xs:enumeration value="Header" />
-									<xs:enumeration value="QueryString" />
-									<xs:enumeration value="Body" />
-									<xs:enumeration value="Not applicable" /> <!-- callbacks -->
+									<xs:enumeration value="Header"/>
+									<xs:enumeration value="QueryString"/>
+									<xs:enumeration value="Body"/>
+									<xs:enumeration value="Not applicable"/>
+									<!-- callbacks -->
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
@@ -48,44 +48,49 @@
 	</xs:complexType>
 	<xs:complexType name="request">
 		<xs:sequence>
-			<xs:element name="body" type="xs:string" minOccurs="1" />
-			<xs:element name="request-header" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="body" type="xs:string" minOccurs="1" maxOccurs="1"/>
+			<!-- Change 02 - body is set to max 1 to force data-fill to create one collection per rep. format supported. -->
+			<xs:element name="request-header" minOccurs="1" maxOccurs="1">
+				<!-- Change 02 - body is set to max 1 to force data-fill to create one collection per rep. format supported. -->
 				<xs:complexType>
 					<xs:sequence>
-						<xs:element name="http-verbs" type="verbs:http-verbs" minOccurs="1" />
-						<xs:element name="uri" type="xs:string" minOccurs="1" />
+						<xs:element name="http-verbs" type="verbs:http-verbs" minOccurs="1"/>
+						<xs:element name="uri" type="xs:string" minOccurs="1"/>
 						<xs:element name="authorization" minOccurs="1">
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
-									<xs:enumeration value="Not applicable" /> <!-- Callbacks -->
-									<xs:enumeration value="Bearer value_of_access_token" />
+									<xs:enumeration value="Not applicable"/>
+									<xs:enumeration value="Bearer value_of_access_token"/>
+									<!-- Callbacks -->
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
 						<xs:element name="accept" minOccurs="1">
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
-									<xs:enumeration value="Not applicable" />  <!-- callbacks -->
-									<xs:enumeration value="application/json" />
-									<xs:enumeration value="application/xml" />
+									<xs:enumeration value="Not applicable"/>
+									<xs:enumeration value="application/json"/>
+									<xs:enumeration value="application/xml"/>
+									<!-- callbacks -->
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
-						<xs:element name="content-type" minOccurs="1"> <!-- should be minOccurs="0" as GET uses no body element and hence make content-type inapplicable to that kind of request -->
+						<xs:element name="content-type" minOccurs="1">
+							<!-- minOc=1 is correct as by convention, the data-fill must create this as an "empty" element when referring to a operation that uses the GET verb. -->
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
-									<xs:enumeration value="Do not include. Not applicable with GET requests." />
-									<xs:enumeration value="application/json" />
-									<xs:enumeration value="application/xml" />
-									<xs:enumeration value="application/x-www-form-urlencoded" />
+									<xs:enumeration value="Do not include. Not applicable with GET requests."/>
+									<xs:enumeration value="application/json"/>
+									<xs:enumeration value="application/xml"/>
+									<xs:enumeration value="application/x-www-form-urlencoded"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
 						<xs:element name="connection-type" minOccurs="1">
 							<xs:simpleType>
 								<xs:restriction base="xs:string">
-									<xs:enumeration value="keep-alive" />
-									<xs:enumeration value="close" />
+									<xs:enumeration value="keep-alive"/>
+									<xs:enumeration value="close"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>

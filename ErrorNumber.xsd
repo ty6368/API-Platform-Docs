@@ -16,23 +16,25 @@
   
   Revision History
   __________________________________________________________________
+  0.2 - ty6368 - 8/19/2012 - Updated api list, 
   0.1 - ts315t - 8/14/2012 - Initial version
 
 
 
  -->
-
-<xs:schema id="ErrorDataSet" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://developer.att.com/ErrorNumber" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:ns1="http://developer.att.com/ErrorNumber" targetNamespace="http://developer.att.com/ErrorNumber" elementFormDefault="qualified" id="ErrorDataSet">
 	<xs:complexType name="ErrorNumberType">
 		<xs:sequence>
 			<xs:element name="errorType" minOccurs="1">
 				<xs:simpleType>
 					<xs:restriction base="xs:string">
-						<xs:enumeration value="POL" />
-						<xs:enumeration value="SVC" />
-						<xs:enumeration value="SDK" />
-						<xs:enumeration value="INT" /> <!-- Additional items TBD -->
-						<xs:enumeration value="CON" /> <!-- Additional items TBD -->
+						<xs:enumeration value="POL"/>
+						<xs:enumeration value="SVC"/>
+						<xs:enumeration value="SDK"/>
+						<xs:enumeration value="INT"/>
+						<xs:enumeration value="CON"/>
+						<!-- Additional items TBD -->
+						<!-- Additional items TBD -->
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
@@ -40,24 +42,35 @@
 			<xs:element name="api" minOccurs="1">
 				<xs:simpleType>
 					<xs:restriction base="xs:int">
-						<xs:enumeration value="01" /> <!-- SMS -->
-						<xs:enumeration value="02" /> <!-- MMS -->
+						<xs:enumeration value="01"/>						<!-- Device Capability -->
+						<xs:enumeration value="02"/>						<!-- LOCATION -->
+						<xs:enumeration value="03"/>						<!-- MIM -->
+						<xs:enumeration value="04"/>						<!-- MMS -->
+						<xs:enumeration value="05"/>						<!-- MOBO -->
+						<xs:enumeration value="06"/>						<!-- NOTARY -->
+						<xs:enumeration value="07"/>						<!-- OAUTH -->
+						<xs:enumeration value="08"/>						<!-- PAYMENT -->
+						<xs:enumeration value="09"/>						<!-- SMS -->
+						<xs:enumeration value="10"/>						<!-- SPEECH -->
+						<xs:enumeration value="11"/>						<!-- WAP -->
+						<xs:enumeration value="12"/>						<!-- Advertisement -->
 					</xs:restriction>
 				</xs:simpleType>
 			</xs:element>
 			<!-- restricted list to follow -->
-			<xs:element name="operation_id" type="xs:int" minOccurs="1" />
+			<xs:element name="operation_id" type="xs:int" minOccurs="1"/>
 			<!-- restricted list -->
-			<xs:element name="version" minOccurs="1">
-				<xs:simpleType>
-					<xs:restriction base="xs:int">
-						<xs:enumeration value="1" />
-						<xs:enumeration value="2" />
-						<xs:enumeration value="3" />
-					</xs:restriction>
-				</xs:simpleType>
-			</xs:element>
-			<xs:element name="errorNumber" type="xs:int" minOccurs="1" />
+				<xs:element name="version" minOccurs="1">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+						<xs:enumeration value="1"/>
+						<xs:enumeration value="2"/>
+						<xs:enumeration value="3"/>
+						<xs:enumeration value="4"/>										
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			<xs:element name="errorNumber" type="xs:int" minOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 </xs:schema>

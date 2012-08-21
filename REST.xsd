@@ -9,8 +9,8 @@
  
  
   Title: Error Documentation Schema
-  Version: 0.3
-  @author  Ty Showers and Tim Young
+  Version: 0.1
+  @author Tim Young and Ty Showers
  
   Copyright (c) 2012 AT&T. All Rights Reserved.
   
@@ -55,13 +55,13 @@
 										<xs:enumeration value="WAP"/>
 										<xs:enumeration value="TL"/>
 										<xs:enumeration value="DC"/>
-										<xs:enumeration value="PAYMENT"/>										
+										<xs:enumeration value="PAYMENT"/>
 										<xs:enumeration value="MOBO"/>
-										<xs:enumeration value="SPEECH"/>										
+										<xs:enumeration value="SPEECH"/>
 										<xs:enumeration value="CCS"/>
 										<xs:enumeration value="ADS"/>
-										<!-- The "scope" element does not apply to Callbacks, Notary or OAuth. -->
 										<xs:enumeration value="Scope does not apply."/>
+										<!-- The "scope" element does not apply to Callbacks, Notary or OAuth. -->
 									</xs:restriction>
 								</xs:simpleType>
 							</xs:element>
@@ -73,11 +73,15 @@
 									</xs:sequence>
 								</xs:complexType>
 							</xs:element>
-							<xs:element name="RequestParameters" type="rqs:request-parameters" minOccurs="1"/>
-							<xs:element name="Request" type="rqs:request" minOccurs="1"/>
+							<xs:sequence>
+								<xs:element name="RequestParameters" type="rqs:request-parameters" minOccurs="1"/>
+							</xs:sequence>
+							<xs:sequence>
+								<xs:element name="Request" type="rqs:request" minOccurs="1"/>
+							</xs:sequence>
 							<xs:element name="ResponseParamenters" type="rsp:response-parameters" minOccurs="1"/>
 							<xs:element name="Response" type="rsp:response" minOccurs="1"/>
-							<xs:element name="ErrorNumber" type="eb:ErrorBrief" minOccurs="1"/>
+							<xs:element name="ErrorNumber" type="eb:ErrorBrief" minOccurs="1" maxOccurs="unbounded"/>
 						</xs:sequence>
 					</xs:complexType>
 				</xs:element>
